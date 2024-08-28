@@ -1,6 +1,5 @@
 {% set version = '0.2.79' %}
 {% set posix = 'm2-' if win else '' %}
-{% set native = 'm2w64-' if win else '' %}
 
 package:
   name: r-mashr
@@ -13,8 +12,7 @@ source:
   sha256: 158b3670277523fa3168a46a9d80a1f6dd7063091b54584cd170eb70bf85f886
 
 build:
-  merge_build_host: True  # [win]
-  number: 0
+  number: 1
   rpaths:
     - lib/R/lib/
     - lib/
@@ -22,7 +20,8 @@ build:
     - '*/R.dll'        # [win]
     - '*/Rblas.dll'    # [win]
     - '*/Rlapack.dll'  # [win]
-  skip: true  # [win]
+  # Checking windows to see if it passes. Uncomment the line if it fails.
+  # skip: true  # [win]
 
 requirements:
   build:
@@ -49,7 +48,7 @@ requirements:
     - {{ posix }}autoconf
     - {{ posix }}automake          # [not win]
     - {{ posix }}automake-wrapper  # [win]
-    - {{ posix }}pkg-config
+    - pkg-config
     - {{ posix }}make
     - {{ posix }}coreutils         # [win]
     - {{ posix }}zip               # [win]
@@ -74,7 +73,6 @@ requirements:
     - liblapack
   run:
     - r-base
-    - {{ native }}gcc-libs         # [win]
     - r-abind
     - r-ashr >=2.2_22
     - r-assertthat
