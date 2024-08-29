@@ -50,7 +50,7 @@ requirements:
     - {{ posix }}make
     - {{ posix }}coreutils         # [win]
     - {{ posix }}zip               # [win]
-    - libgomp                      # [linux]
+    - libgomp                      # [not osx]
     - llvm-openmp                  # [osx]
   host:
     - r-base
@@ -81,6 +81,7 @@ requirements:
     - r-rcppgsl >=0.3.8
     - r-rmeta
     - r-softimpute
+    - libgomp                      # [win]
 
 test:
   commands:
