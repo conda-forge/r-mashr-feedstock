@@ -40,6 +40,7 @@ requirements:
     - {{ stdlib('m2w64_c') }}      # [win]
     - {{ compiler('cxx') }}        # [not win]
     - {{ compiler('m2w64_cxx') }}  # [win]
+    - {{ compiler('fortran') }}    # [osx and arm64]
     - {{ posix }}filesystem        # [win]
     - {{ posix }}sed               # [win]
     - {{ posix }}grep              # [win]
@@ -54,14 +55,14 @@ requirements:
     - llvm-openmp                  # [osx]
   host:
     - r-base
+    - r-rcpp >=1.0.8
+    - r-rcpparmadillo
+    - r-rcppgsl >=0.3.8
     - r-abind
     - r-ashr >=2.2_22
     - r-assertthat
     - r-mvtnorm
     - r-plyr
-    - r-rcpp >=1.0.8
-    - r-rcpparmadillo
-    - r-rcppgsl >=0.3.8
     - r-rmeta
     - r-softimpute
     - libgomp                      # [not osx]
@@ -71,14 +72,14 @@ requirements:
     - liblapack
   run:
     - r-base
+    - r-rcpp >=1.0.8
+    - r-rcpparmadillo
+    - r-rcppgsl >=0.3.8
     - r-abind
     - r-ashr >=2.2_22
     - r-assertthat
     - r-mvtnorm
     - r-plyr
-    - r-rcpp >=1.0.8
-    - r-rcpparmadillo
-    - r-rcppgsl >=0.3.8
     - r-rmeta
     - r-softimpute
     - libgomp                      # [win]
